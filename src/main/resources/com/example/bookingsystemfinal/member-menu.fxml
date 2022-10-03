@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="615.0" prefWidth="858.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookingsystemfinal.MemberMenuController">
+    <children>
+        <Button fx:id="btnBookedSessions" mnemonicParsing="false" onAction="#bookedSessionsButton" prefHeight="44.0" prefWidth="166.0" text="Booked Sessions" />
+        <TextField fx:id="searchBar" layoutX="163.0" layoutY="166.0" onAction="#search" prefHeight="59.0" prefWidth="509.0" promptText="Search for &quot;yoga&quot;" />
+    </children>
+</AnchorPane>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="scrollBar" onDragDetected="#scroll" onDragDone="#scroll" onDragDropped="#scroll" onDragEntered="#scroll" onDragExited="#scroll" onDragOver="#scroll" onMouseDragEntered="#scroll" onMouseDragExited="#scroll" onMouseDragOver="#scroll" onMouseDragReleased="#scroll" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookingsystemfinal.BookedSessionsTabController">
+    <children>
+        <Label layoutX="11.0" layoutY="95.0" prefHeight="38.0" prefWidth="765.0" text="To unbook a session or look at the details of a session you have already booked please click on the desired session below:">
+            <font>
+                <Font name="Arial Bold" size="13.0" />
+            </font>
+        </Label>
+        <Button fx:id="ExitButton" layoutX="-1.0" layoutY="-1.0" mnemonicParsing="false" onAction="#exitbtn" prefHeight="53.0" prefWidth="122.0" text="Exit" />
+        <ScrollBar layoutX="786.0" layoutY="-2.0" orientation="VERTICAL" prefHeight="800.0" prefWidth="15.0" />
+    </children>
+</AnchorPane>
