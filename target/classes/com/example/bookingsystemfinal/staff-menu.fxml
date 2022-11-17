@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookingsystemfinal.StaffMenuController">
+    <children>
+        <TableView layoutY="75.0" prefHeight="725.0" prefWidth="900.0">
+            <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn prefWidth="75.0" text="Column X" />
+                <TableColumn prefWidth="75.0" text="Column X" />
+                <TableColumn prefWidth="75.0" text="Column X" />
+                <TableColumn prefWidth="75.0" text="Column X" />
+            </columns>
+        </TableView>
+        <Button layoutX="-2.0" layoutY="-5.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="86.0" text="members" />
+        <Button layoutX="84.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="77.0" text="staff" />
+        <Button layoutX="161.0" layoutY="-5.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="86.0" text="insturctors" />
+        <Button layoutX="247.0" layoutY="-6.0" mnemonicParsing="false" prefHeight="81.0" prefWidth="99.0" text="key" />
+    </children>
+</AnchorPane>

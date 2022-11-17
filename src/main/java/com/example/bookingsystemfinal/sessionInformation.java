@@ -2,32 +2,36 @@ package com.example.bookingsystemfinal;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class userInformation {
-    private String userEmail;
+public class sessionInformation {
+    private String className;
+    private String classRoom;
+    private int maxCapacity;
+    private String recAge;
+    private String gender;
+    private double length;
+    private String classDate;
+    private String roomType;
 
-    private String userPassword;
-
-    public userInformation(String userEmail, String userPassword) {
-        this.userEmail = userEmail;
-        this.userPassword = userPassword;
+    public sessionInformation(String className, String classRoom) {
+        this.className = className;
+        this.classRoom = classRoom;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getClassName() {
+        return className;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setClassName(String className) {
+        this.className = className;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getClassRoom() {
+        return classRoom;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setClassRoom(String classRoom) {
+        this.classRoom = classRoom;
     }
 
     public static void main(String[] args) {
@@ -58,33 +62,33 @@ public class userInformation {
         }
     }
 
-    public static ArrayList<String> memberEmail = new ArrayList<>();
-    public static ArrayList<Integer> memberPassword = new ArrayList<>();
+    public static ArrayList<String> sessionName = new ArrayList<>();
+    public static ArrayList<Integer> sessionRoom = new ArrayList<>();
 
-    public static void databaseMember() {
+    public static void databaseclass() {
         try {
-            if (memberEmail == null && memberPassword == null) {
+            if (sessionName == null && sessionRoom == null) {
                 String dataLoc = System.getProperty("user.dir") + "\\src//main//resources//DataBase//userInformation.accdb";
                 Connection connection = DriverManager.getConnection("jdbc:ucanaccess://" + dataLoc, "", "");
                 Statement statement = connection.createStatement();
-                ResultSet rEmail = statement.executeQuery("select Email from memberInformation");
-                ResultSet rPassword = statement.executeQuery("select Password from memberInformation");
+                ResultSet rName = statement.executeQuery("select className from classinformation");
+                ResultSet rRoom = statement.executeQuery("select classRoom from classinformation");
                 while (true) {
-                    if (rEmail.next()) {
-                        memberEmail.add(rEmail.getString("Email"));
+                    if (rName.next()) {
+                        sessionName.add(rName.getString("Email"));
                     } else {
                         break;
                     }
                 }
                 while (true) {
-                    if (rPassword.next()) {
-                        memberPassword.add(rPassword.getInt("Password"));
+                    if (rRoom.next()) {
+                        sessionRoom.add(rRoom.getInt("Password"));
                     } else {
                         break;
                     }
                 }
-                System.out.println((memberEmail));
-                System.out.println(memberPassword);
+                System.out.println((sessionName));
+                System.out.println(sessionRoom);
                 connection.close();
             }
         } catch (Exception exception) {
@@ -92,4 +96,3 @@ public class userInformation {
         }
     }
 }
-
