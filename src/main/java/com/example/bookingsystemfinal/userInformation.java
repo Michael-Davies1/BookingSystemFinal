@@ -59,14 +59,14 @@ public class userInformation {
     }
 
     public static ArrayList<String> memberEmail = new ArrayList<>();
-    public static ArrayList<Integer> memberPassword = new ArrayList<>();
+    public static ArrayList<String> memberPassword = new ArrayList<>();
 
     public static void databaseMember() {
         try {
             if (memberEmail == null && memberPassword == null) {
                 String dataLoc = System.getProperty("user.dir") + "\\src//main//resources//DataBase//userInformation.accdb";
                 Connection connection = DriverManager.getConnection("jdbc:ucanaccess://" + dataLoc, "", "");
-                Statement statement = connection.createStatement();
+                Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
                 ResultSet rEmail = statement.executeQuery("select Email from memberInformation");
                 ResultSet rPassword = statement.executeQuery("select Password from memberInformation");
                 while (true) {
@@ -78,7 +78,7 @@ public class userInformation {
                 }
                 while (true) {
                     if (rPassword.next()) {
-                        memberPassword.add(rPassword.getInt("Password"));
+                        memberPassword.add(rPassword.getString("Password"));
                     } else {
                         break;
                     }

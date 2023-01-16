@@ -13,9 +13,15 @@ public class sessionInformation {
     private String classDate;
     private String roomType;
 
-    public sessionInformation(String className, String classRoom) {
+    public sessionInformation(String className, String classRoom, String recAge, int maxCapacity, String gender, double length, String classDate, String roomType) {
         this.className = className;
         this.classRoom = classRoom;
+        this.classDate = classDate;
+        this.gender = gender;
+        this.length = length;
+        this.maxCapacity = maxCapacity;
+        this.recAge = recAge;
+        this.roomType = roomType;
     }
 
     public String getClassName() {

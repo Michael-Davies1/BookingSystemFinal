@@ -23,11 +23,13 @@ public class SignUpController {
     private Label SignUpStatus;
 
     public void signUpbtn (ActionEvent event) {
-        if (signUpEmailtxt.getText().equals("p") && ConfirmEmailtxt.getText().equals("p") && signUpPassword.getText().equals("p") && ConfirmPassword.getText().equals("p")) {
+        if (signUpEmailtxt.getText().equals(ConfirmEmailtxt.getText()) && signUpPassword.getText().equals(ConfirmPassword.getText())) {
             SignUpStatus.setText("Sign-Up Successful");
+            userInformation.memberEmail.add(signUpEmailtxt.getText());
+            userInformation.memberPassword.add(signUpPassword.getText());
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("member-menu.fxml"));
-                Parent root1 = (Parent) fxmlLoader.load();
+                Parent root1 = (Parent)  fxmlLoader.load();
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root1));
                 stage.show();
