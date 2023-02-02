@@ -26,38 +26,33 @@ public class loginController {
     private TextField emailstxt;
 
     public boolean login(ActionEvent event) {
-        String DatabaseLocation = System.getProperty("user.dir") + "\\userInformation";
+        String DatabaseLocation = System.getProperty("user.dir") + "\\userInformation.accdb";
         try {
             Connection connection = DriverManager.getConnection("jdbc:ucanaccess://" + DatabaseLocation, "", "");
             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             String sql = "SELECT * FROM memberInformation";
             ResultSet RS = statement.executeQuery(sql);
-            while (RS.next()) {
-                if (emailstxt.equals(RS.getString("Email"))) {
-                    if (RS.getString("Password").equals(passwordtxt)) {
-                        StatusLBL.setText("welcome member");
-                        connection.close();
-                        try {
-                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("member-menu.fxml"));
-                            Parent root1 = (Parent) fxmlLoader.load();
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(root1));
-                            stage.show();
-                            ((Node) (event.getSource())).getScene().getWindow().hide();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        return true;
-                    } else {
-                        StatusLBL.setText("password invalid");
-                    }
-
-
-                } else {
-                    StatusLBL.setText("email address is invalid");
+            while (RS.next()) {if (emailstxt.getText().equals(RS.getString("memberEmail"))) {if (RS.getString("memberPassword").equals(passwordtxt))
+            {
+                StatusLBL.setText("welcome member");
+                connection.close();
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("member-menu.fxml"));
+                    Parent root1 = (Parent) fxmlLoader.load();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root1));
+                    stage.show();
+                    ((Node) (event.getSource())).getScene().getWindow().hide();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-
-
+                return true;
+            } else {
+                StatusLBL.setText("password invalid");
+            }
+            } else {
+                StatusLBL.setText("email address is invalid");
+            }
             }
             connection.close();
         } catch (Exception e) {
