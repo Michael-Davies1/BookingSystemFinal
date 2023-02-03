@@ -7,5 +7,6 @@
     <children>
         <Button fx:id="btnBookedSessions" mnemonicParsing="false" onAction="#bookedSessionsButton" prefHeight="44.0" prefWidth="166.0" text="Booked Sessions" />
         <TextField fx:id="searchBar" layoutX="163.0" layoutY="166.0" onAction="#search" prefHeight="59.0" prefWidth="509.0" promptText="Search for &quot;yoga&quot;" />
+      <ListView layoutX="163.0" layoutY="239.0" prefHeight="274.0" prefWidth="509.0" />
     </children>
 </AnchorPane>

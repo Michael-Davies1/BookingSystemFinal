@@ -32,27 +32,28 @@ public class loginController {
             Statement statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
             String sql = "SELECT * FROM memberInformation";
             ResultSet RS = statement.executeQuery(sql);
-            while (RS.next()) {if (emailstxt.getText().equals(RS.getString("memberEmail"))) {if (RS.getString("memberPassword").equals(passwordtxt))
-            {
-                StatusLBL.setText("welcome member");
-                connection.close();
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("member-menu.fxml"));
-                    Parent root1 = (Parent) fxmlLoader.load();
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(root1));
-                    stage.show();
-                    ((Node) (event.getSource())).getScene().getWindow().hide();
-                } catch (Exception e) {
-                    e.printStackTrace();
+            while (RS.next()) {
+                if ((RS.getString("memberEmail").equals(emailstxt.getText()))) {
+                    if (RS.getString("memberPassword").equals(passwordtxt.getText())) {
+                        StatusLBL.setText("welcome member");
+                        connection.close();
+                        try {
+                            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("member-menu.fxml"));
+                            Parent root1 = (Parent) fxmlLoader.load();
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(root1));
+                            stage.show();
+                            ((Node) (event.getSource())).getScene().getWindow().hide();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        return true;
+                    } else {
+                        StatusLBL.setText("password invalid");
+                    }
+                } else {
+                    StatusLBL.setText("email address is invalid");
                 }
-                return true;
-            } else {
-                StatusLBL.setText("password invalid");
-            }
-            } else {
-                StatusLBL.setText("email address is invalid");
-            }
             }
             connection.close();
         } catch (Exception e) {
