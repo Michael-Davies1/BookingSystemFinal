@@ -5,8 +5,8 @@
 
 <AnchorPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookingsystemfinal.StaffLoginController">
     <children>
-        <TextField fx:id="staffEmailtxt" layoutX="76.0" layoutY="94.0" onAction="#staffLogin" promptText="Staff Email-address" />
-        <PasswordField fx:id="staffPasswordtxt" layoutX="76.0" layoutY="158.0" onAction="#staffLogin" promptText="Password" />
+        <TextField fx:id="staffEmail" layoutX="76.0" layoutY="94.0" onAction="#staffLogin" promptText="Staff Email-address" />
+        <PasswordField fx:id="staffPassword" layoutX="76.0" layoutY="158.0" onAction="#staffLogin" promptText="Password" />
         <Button fx:id="staffLoginbtn" layoutX="114.0" layoutY="239.0" mnemonicParsing="false" onAction="#staffLogin" text="Staff Login" />
     </children>
 </AnchorPane>
