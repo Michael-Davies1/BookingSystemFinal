@@ -25,8 +25,6 @@ public class SignUpController {
     public void signUpbtn (ActionEvent event) {
         if (signUpEmailtxt.getText().equals(ConfirmEmailtxt.getText()) && signUpPassword.getText().equals(ConfirmPassword.getText())) {
             SignUpStatus.setText("Sign-Up Successful");
-            userInformation.memberEmail.add(signUpEmailtxt.getText());
-            userInformation.memberPassword.add(signUpPassword.getText());
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("member-menu.fxml"));
                 Parent root1 = (Parent)  fxmlLoader.load();

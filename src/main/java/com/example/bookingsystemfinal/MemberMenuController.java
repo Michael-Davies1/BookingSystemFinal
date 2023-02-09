@@ -60,8 +60,8 @@ public class MemberMenuController {
     public void displayList(ActionEvent event) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("session-menu.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
+            FXMLLoader newfxmlLoader = new FXMLLoader(getClass().getResource("session-menu.fxml"));
+            Parent root1 = (Parent) newfxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();

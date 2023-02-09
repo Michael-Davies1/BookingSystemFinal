@@ -18,7 +18,7 @@ public class StaffLoginController {
     private TextField staffEmailtxt;
 
     public void staffLogin (ActionEvent event) {
-        if (staffEmailtxt.getText().equals("staff") && staffPasswordtxt.getText().equals("staffpass")) {
+        if (staffEmailtxt.getText().equals("staff") && staffPasswordtxt.getText().equals("pass")) {
             try {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("staff-menu.fxml"));
                 Parent root1 = (Parent) fxmlLoader.load();
